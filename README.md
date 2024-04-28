@@ -1,5 +1,5 @@
- <H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+ <H3>ENTER YOUR NAME: PRIYANKA A</H3>
+<H3>ENTER YOUR REGISTER NO: 212222230113</H3>
 <H3>EX. NO.8</H3>
 <H3>DATE:</H3>
 <H1 ALIGN =CENTER>Implementation of Speech Recognition</H1>
@@ -22,9 +22,33 @@ Step 11: Perform speech recognition with exceptional handling:<Br>
 •	A generic exception block captures any other unexpected errors.<Br>
 <H3>Program:</H3>
 
-Insert your code her
+```py
+pip install SpeechRecognition
+pip install pyaudio
+
+import speech_recognition as sr
+r = sr.Recognizer()
+duration = 5
+print("Say Something")
+
+with sr.Microphone() as source:
+    audio_data = r.listen(source, timeout=duration)
+
+try:
+    text = r.recognize_google(audio_data)
+    print('you said:', text)
+except sr.UnknownValueError:
+    print('Sorry,could not understand audio')
+except sr.RequestError as e:
+    print(f'Error with the request to Google Speech Recognition service: {e}')
+except Exception as e:
+    print(f'Error: {e}')
+``` 
 
 <H3> Output:</H3>
-Show the results here
+
+![326157683-0d5ad8ab-833f-4952-9163-4d698d0c0003](https://github.com/Gokul0117/Ex-8--AAI/assets/121165938/600ed826-a936-476d-acbd-58e21773d282)
+
 
 <H3> Result:</H3>
+Thus, the conversion of live speech to text is done sucessfully.
